@@ -25,7 +25,7 @@ public class EventDao {
                 "\t`name`\tTEXT,\n" +
                 "\t`description`\tTEXT,\n" +
                 "\t`date`\tTEXT,\n" +
-                "\t`category`\tTEXT,\n" +
+                "\t`category`\tTEXT\n" +
                 ")");
     }
 }
