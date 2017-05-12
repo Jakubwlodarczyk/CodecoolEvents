@@ -16,7 +16,7 @@ public class EventController {
         //Get events from database by Dao
 
         Map params = new HashMap<>();
-        params.put("eventContainer", "Codecool cinema");
+        params.put("eventContainer", "Codecool");
         return new ModelAndView(params, "product/index");
     }
 }
