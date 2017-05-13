@@ -1,6 +1,5 @@
 package model;
 
-import java.security.PrivateKey;
 
 /**
  * Created by jakub on 12/05/17.

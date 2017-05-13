@@ -7,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Codecool events</title>
 </head>
-<body>
+
+<h1>Codecool Events List:</h1>
 
 <div class="container">
-
     <div id="products" class="row list-group">
-
+        <!--/*@thymesVar id="eventContainer" type="Main"*/-->
         <div class="item col-xs-4 col-lg-4" th:each="event,iterStat : ${eventContainer}">
-           <div th:text="${event}"></div>
+            <div th:text="${event.name}"></div>
         </div>
     </div>
-
 </div>
 
-<div th:replace="footer :: copy"></div>
+<br>
 
+<div th:replace="footer :: copy"></div>
 
 </body>
 </html>
