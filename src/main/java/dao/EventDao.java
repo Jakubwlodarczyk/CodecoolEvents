@@ -41,7 +41,7 @@ public class EventDao {
         try {
             Connection connection = EventDao.connection();
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from events");
+            ResultSet rs = statement.executeQuery("select * from events where date > date('now')");
             while(rs.next()) {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String datestring = rs.getString("date");
