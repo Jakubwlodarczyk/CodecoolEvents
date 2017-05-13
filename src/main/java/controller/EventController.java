@@ -21,28 +21,10 @@ import java.util.Map;
 public class EventController {
 
     public static ModelAndView renderProducts(Request req, Response res) {
-        //Get events from database by Dao
-        List<Event> events = new ArrayList<>();
-        try {
-            Connection connection = EventDao.connection();
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from events");
-            while(rs.next()) {
-                Event event = new Event(
-                        rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getString("date"),
-                        rs.getString("category")
-                );
-                events.add(event);
-            }
-        } catch (SQLException e) {
-            System.out.println("Connection to database failed.");
-            System.out.println(e.getMessage());
-        }
 
+        EventDao eventDao = new EventDao();
         Map params = new HashMap<>();
-        params.put("eventContainer", events);
+        params.put("eventContainer", eventDao.getAll());
         return new ModelAndView(params, "product/index");
     }
 }

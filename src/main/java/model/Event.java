@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 
 /**
  * Created by jakub on 12/05/17.
@@ -8,10 +9,10 @@ public class Event {
 
     public String name;
     public String description;
-    public String date;
+    public Date date;
     public String category;
 
-    public Event(String name, String description, String date, String category) {
+    public Event(String name, String description, Date date, String category) {
         this.name = name;
         this.description = description;
         this.date = date;
@@ -32,15 +33,15 @@ public class Event {
     }
 
     public void setDescription(String description) {
-        this.name = description;
+        this.description = description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return this.date;
     }
 
-    public void setDate(String date) {
-        this.name = date;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getCategory() {
@@ -48,6 +49,6 @@ public class Event {
     }
 
     public void setCategory(String category) {
-        this.name = category;
+        this.category = category;
     }
 }
