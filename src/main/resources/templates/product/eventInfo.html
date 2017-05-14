@@ -9,7 +9,42 @@
 </head>
 
 <body>
-    <h1> Event info:</h1>
+
+<h2>Event info:</h2>
+    <!--/*@thymesVar id="event" type="Main"*/-->
+    <div th:text="${event.name}"></div>
+    <br>
+
+    <h3>Description</h3>
+    <div th:text="${event.description}"></div>
+    <br>
+
+    <h3>Date</h3>
+    <div th:text="${event.date}"></div>
+    <br>
+
+    <h3>Category</h3>
+    <div th:text="${event.category}"></div>
+    <br>
+
+    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nulla malesuada quam sed tincidunt consequat. Mauris aliquet vel tortor et blandit.
+        Aenean a turpis dignissim, tincidunt ante ut, sagittis risus.
+        Nunc pellentesque elementum arcu ut pharetra. Morbi sodales ex at leo ultricies viverra.
+        Integer magna mi, tincidunt quis ligula et, pellentesque luctus dolor.
+        Suspendisse posuere odio nec velit imperdiet, a fringilla erat maximus.
+        In ac lectus nulla. Maecenas sagittis interdum est, eget rhoncus lorem bibendum at.
+        Etiam pretium tempor nunc, a pretium urna congue ac. Suspendisse vehicula,
+        nibh vehicula vestibulum sodales, tortor metus eleifend mi, vitae consequat massa
+        ex in enim. Nam sed congue velit. Aenean mattis lacinia augue a dapibus.</a>
+    <br>
+    <form action="/" method="get">
+        <input type="submit" value="Back to events list">
+    </form>
+
+    <br>
+
+    <div th:replace="footer :: copy"></div>
 
 </body>
 </html>

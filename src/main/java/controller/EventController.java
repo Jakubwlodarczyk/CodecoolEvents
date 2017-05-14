@@ -1,6 +1,7 @@
 package controller;
 
 import dao.EventDao;
+import model.Event;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -23,7 +24,10 @@ public class EventController {
     public static ModelAndView renderEventsInfo(Request req, Response res) {
         EventDao eventDao = new EventDao();
         Map params = new HashMap<>();
-        params.put("eventContainer", eventDao.getAll());
+        String stringId = req.queryParams("event-id");
+        Integer integerId = Integer.parseInt(stringId);
+        params.put("event", eventDao.getById(integerId));
+        Event event = eventDao.getById(integerId);
         return new ModelAndView(params,"product/eventInfo");
     }
 }

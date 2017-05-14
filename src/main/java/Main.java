@@ -38,9 +38,7 @@ public class Main {
             return new ThymeleafTemplateEngine().render( EventController.renderEvents(req, res) );
         });
 
-        get("/event-info", (Request req, Response res) -> {
-            return new ThymeleafTemplateEngine().render( EventController.renderEventsInfo(req, res) );
-        });
+        get("/event-info", EventController::renderEventsInfo, new ThymeleafTemplateEngine() );
     }
 
 

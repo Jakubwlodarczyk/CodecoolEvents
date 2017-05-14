@@ -64,4 +64,32 @@ public class EventDao {
         }
         return events;
     }
+
+    public Event getById(Integer id) {
+        Event event = null;
+        try {
+            Connection connection = EventDao.connection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("select * from events where id =" + id);
+            while(rs.next()) {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String datestring = rs.getString("date");
+                Date date = format.parse(datestring);
+                event = new Event(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        date,
+                        rs.getString("category")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection to database failed.");
+            System.out.println(e.getMessage());
+        } catch (ParseException e) {
+            System.out.println("Cannot convert date format from database");
+            System.out.println(e.getMessage());
+        }
+        return event;
+    }
 }

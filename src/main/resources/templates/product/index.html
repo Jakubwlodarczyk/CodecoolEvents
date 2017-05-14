@@ -15,10 +15,10 @@
         <div id="products" class="row list-group">
             <!--/*@thymesVar id="eventContainer" type="Main"*/-->
             <div class="item col-xs-4 col-lg-4" th:each="event,iterStat : ${eventContainer}">
-                <a href="/event-info">
-                    <div th:text="${event.name}"></div>
-                    <input type="hidden" th:name="event-id" th:value="${event.id}">
-                </a>
+                <form action="/event-info" method="get">
+                    <input type="hidden" name="event-id" th:value="${event.id}">
+                    <input type="submit" th:value="${event.name}">
+                </form>
             </div>
         </div>
     </div>
