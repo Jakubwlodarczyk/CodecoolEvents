@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codecool events</title>
+</head>
+<body>
+    <h1>Add new event</h1>
+    <form>
+        <a>Name:</a>
+        <input type="text" name="event-name">
+        <br>
+
+        <a>Description:</a>
+        <input type="text" name="event-description">
+        <br>
+
+        <a>Date:</a>
+        <input type="date" name="event-date">
+        <br>
+
+        <a>Time:</a>
+        <input type="time" name="event-time">
+        <br>
+
+        <a>Category:</a>
+        <input type="text" name="event-category">
+        <br>
+
+        <input type="submit" value="Add event">
+    </form>
+
+</body>
+
+<br>
+
+<div th:replace="footer :: copy"></div>
+</html>

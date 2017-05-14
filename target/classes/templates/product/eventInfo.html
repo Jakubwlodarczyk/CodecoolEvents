@@ -14,15 +14,19 @@
     <!--/*@thymesVar id="event" type="Main"*/-->
     <div th:text="${event.name}"></div>
     <br>
+
     <h3>Description</h3>
     <div th:text="${event.description}"></div>
     <br>
+
     <h3>Date</h3>
     <div th:text="${event.date}"></div>
     <br>
+
     <h3>Category</h3>
     <div th:text="${event.category}"></div>
     <br>
+
     <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Nulla malesuada quam sed tincidunt consequat. Mauris aliquet vel tortor et blandit.
         Aenean a turpis dignissim, tincidunt ante ut, sagittis risus.
@@ -37,5 +41,10 @@
     <form action="/" method="get">
         <input type="submit" value="Back to events list">
     </form>
+
+    <br>
+
+    <div th:replace="footer :: copy"></div>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 package controller;
 
+import com.sun.org.apache.regexp.internal.RE;
 import dao.EventDao;
 import model.Event;
 import spark.ModelAndView;
@@ -29,5 +30,10 @@ public class EventController {
         params.put("event", eventDao.getById(integerId));
         Event event = eventDao.getById(integerId);
         return new ModelAndView(params,"product/eventInfo");
+    }
+
+    public static ModelAndView renderAddForm(Request req, Response res) {
+        Map params = new HashMap<>();
+        return new ModelAndView(params, "product/addEvent");
     }
 }
