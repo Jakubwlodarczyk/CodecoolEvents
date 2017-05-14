@@ -41,6 +41,8 @@ public class Main {
         get("/event-info", EventController::renderEventsInfo, new ThymeleafTemplateEngine() );
 
         get("/add-event", EventController::renderAddForm, new ThymeleafTemplateEngine() );
+
+        post("/add-event", EventController::addNewEvent, new ThymeleafTemplateEngine());
     }
 
 

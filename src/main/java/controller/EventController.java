@@ -6,6 +6,8 @@ import model.Event;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +17,6 @@ import java.util.Map;
 public class EventController {
 
     public static ModelAndView renderEvents(Request req, Response res) {
-
         EventDao eventDao = new EventDao();
         Map params = new HashMap<>();
         params.put("eventContainer", eventDao.getAll());
@@ -35,5 +36,20 @@ public class EventController {
     public static ModelAndView renderAddForm(Request req, Response res) {
         Map params = new HashMap<>();
         return new ModelAndView(params, "product/addEvent");
+    }
+
+    public static ModelAndView addNewEvent(Request req, Response res) throws SQLException {
+        String eventName = req.queryParams("event-name");
+        String eventDescription = req.queryParams("event-description");
+        String eventDate = req.queryParams("event-date");
+        String eventTime = req.queryParams("event-time");
+        String eventCategory = req.queryParams("event-category");
+        String fullDate = eventDate + " " +eventTime;
+        EventDao eventDao = new EventDao();
+        eventDao.addEventToDatabase(eventName, eventDescription, fullDate, eventCategory);
+
+        Map params = new HashMap<>();
+        params.put("eventContainer", eventDao.getAll());
+        return new ModelAndView(params, "product/index");
     }
 }

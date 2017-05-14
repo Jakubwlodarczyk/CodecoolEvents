@@ -92,4 +92,11 @@ public class EventDao {
         }
         return event;
     }
+
+    public static void addEventToDatabase(String name, String description, String date, String category) throws SQLException {
+        Connection connection = EventDao.connection();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO events(name, description, date, category) " +
+                "VALUES('" +name+ "', '" +description+ "', '" +date+ "', '" +category+ "');");
+    }
 }
