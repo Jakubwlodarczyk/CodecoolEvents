@@ -8,20 +8,23 @@
     <title>Codecool events</title>
 </head>
 
-<h1>Codecool Events List:</h1>
+<body>
+    <h1>Codecool Events List:</h1>
 
-<div class="container">
-    <div id="products" class="row list-group">
-        <!--/*@thymesVar id="eventContainer" type="Main"*/-->
-        <div class="item col-xs-4 col-lg-4" th:each="event,iterStat : ${eventContainer}">
-            <div th:text="${event.name}"></div>
+    <div class="container">
+        <div id="products" class="row list-group">
+            <!--/*@thymesVar id="eventContainer" type="Main"*/-->
+            <div class="item col-xs-4 col-lg-4" th:each="event,iterStat : ${eventContainer}">
+                <a th:href="@{/eventInfo.html}">
+                    <div th:text="${event.name}"></div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
-<br>
+    <br>
 
-<div th:replace="footer :: copy"></div>
+    <div th:replace="footer :: copy"></div>
 
 </body>
 </html>

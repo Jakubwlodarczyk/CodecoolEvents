@@ -47,6 +47,7 @@ public class EventDao {
                 String datestring = rs.getString("date");
                 Date date = format.parse(datestring);
                 Event event = new Event(
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("description"),
                         date,

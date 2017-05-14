@@ -7,17 +7,26 @@ import java.util.Date;
  */
 public class Event {
 
+    public Integer id;
     public String name;
     public String description;
     public Date date;
     public String category;
 
-    public Event(String name, String description, Date date, String category) {
+    public Event(Integer id, String name, String description, Date date, String category) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.date = date;
         this.category = category;
 
+    }
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
