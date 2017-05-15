@@ -1,12 +1,7 @@
 package controller;
 
 import dao.EventDao;
-
 import java.sql.SQLException;
-
-import static spark.Spark.exception;
-import static spark.Spark.port;
-import static spark.Spark.staticFileLocation;
 
 /**
  * Created by jakub on 15/05/17.
