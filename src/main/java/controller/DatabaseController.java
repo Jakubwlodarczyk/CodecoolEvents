@@ -6,7 +6,7 @@ import java.sql.SQLException;
 /**
  * Created by jakub on 15/05/17.
  */
-public class databaseController {
+public class DatabaseController {
 
     public static void createTable(String[] args) {
         if(args.length > 0 && args[0].equals("--create-tables")) {
