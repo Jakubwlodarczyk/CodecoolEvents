@@ -1,7 +1,6 @@
 package dao;
 
 import model.Event;
-
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
-/**
- * Created by rafalstepien on 28/04/2017.
- */
 public class EventDao {
     public static Connection connection() {
         Connection connection = null;
@@ -36,7 +32,7 @@ public class EventDao {
                 ")");
     }
 
-    public List<Event> getAll() {
+    public static List<Event> getAll() {
         List<Event> events = new ArrayList<>();
         try {
             Connection connection = EventDao.connection();
@@ -65,7 +61,7 @@ public class EventDao {
         return events;
     }
 
-    public Event getById(Integer id) {
+    public static Event getById(Integer id) {
         Event event = null;
         try {
             Connection connection = EventDao.connection();
