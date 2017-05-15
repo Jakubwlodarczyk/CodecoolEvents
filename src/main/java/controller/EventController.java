@@ -18,7 +18,7 @@ public class EventController {
 
     public static ModelAndView renderEventsInfo(Request req, Response res) {
         Map params = new HashMap<>();
-        String stringId = req.queryParams("event-id");
+        String stringId = req.params(":id");
         Integer integerId = Integer.parseInt(stringId);
         params.put("event", EventDao.getById(integerId));
         return new ModelAndView(params,"product/eventInfo");
@@ -41,5 +41,9 @@ public class EventController {
         Map params = new HashMap<>();
         params.put("eventContainer", EventDao.getAll());
         return new ModelAndView(params, "product/index");
+    }
+
+    public static void removeEvent(Integer id) throws SQLException {
+        EventDao.removeEventFromDatabase(id);
     }
 }

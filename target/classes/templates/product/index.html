@@ -5,23 +5,41 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Codecool events</title>
 </head>
 
 <body>
-    <h1>Codecool Events List:</h1>
+    <h1 align="center">Codecool Events List:</h1>
 
-    <div class="container">
-        <div id="products" class="row list-group">
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event name:</th>
+                <th>Event date:</th>
+                <th>Action:</th>
+            </tr>
+        </thead>
+        <tbody>
             <!--/*@thymesVar id="eventContainer" type="Main"*/-->
-            <div class="item col-xs-4 col-lg-4" th:each="event,iterStat : ${eventContainer}">
-                <form action="/event-info" method="get">
-                    <input type="hidden" name="event-id" th:value="${event.id}">
-                    <input type="submit" th:value="${event.name}">
-                </form>
-            </div>
-        </div>
-    </div>
+            <tr th:each="event,iterStat : ${eventContainer}">
+                <td>
+                    <a th:text="${event.name}"
+                       href="" th:href="@{~/events/{eventId}/info(eventId=${event.id})}">
+                    </a>
+                </td>
+                <td>
+                    <p th:text="${event.date}"></p>
+                </td>
+                <td>
+                    <a href="" th:href="@{~/events/{eventId}/remove(eventId=${event.id})}">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
     <br>
 

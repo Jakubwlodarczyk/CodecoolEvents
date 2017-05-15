@@ -2,35 +2,60 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Codecool events</title>
 </head>
+
 <body>
-    <h1>Add new event</h1>
+    <h1 align="center">Add new event</h1>
+
     <form action="/add-event" method="post">
-        <a>Name:</a>
-        <input type="text" name="event-name">
-        <br>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="event-name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>
+                        <input type="text" name="event-description">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td>
+                        <input type="date" name="event-date">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Time:</td>
+                    <td>
+                        <input type="time" name="event-time">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td>
+                        <input type="text" name="event-category">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Add event">
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
-        <a>Description:</a>
-        <input type="text" name="event-description">
-        <br>
-
-        <a>Date:</a>
-        <input type="date" name="event-date">
-        <br>
-
-        <a>Time:</a>
-        <input type="time" name="event-time">
-        <br>
-
-        <a>Category:</a>
-        <input type="text" name="event-category">
-        <br>
-
-        <input type="submit" value="Add event">
     </form>
 
     <br>

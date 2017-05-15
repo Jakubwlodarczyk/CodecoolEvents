@@ -5,38 +5,40 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Codecool events</title>
 </head>
 
 <body>
 
-<h2>Event info:</h2>
-    <!--/*@thymesVar id="event" type="Main"*/-->
-    <div th:text="${event.name}"></div>
-    <br>
+<h2 align="center">Event info:</h2>
 
-    <h3>Description</h3>
-    <div th:text="${event.description}"></div>
-    <br>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>Event name:</td>
+            <td><p th:text="${event.name}"></p></td>
+        </tr>
+        <tr>
+            <td>Event description:</td>
+            <td><p th:text="${event.description}"></p></td>
+        </tr>
+        <tr>
+            <td>Event date:</td>
+            <td><p th:text="${event.date}"></p></td>
+        </tr>
+        <tr>
+            <td>Event category:</td>
+            <td><p th:text="${event.category}"></p></td>
+        </tr>
+        <tr>
+            <td>Link:</td>
+            <td><a href="https://www.google.pl">CLICK ME!</a></td>
+        </tr>
+    </tbody>
+</table>
 
-    <h3>Date</h3>
-    <div th:text="${event.date}"></div>
-    <br>
-
-    <h3>Category</h3>
-    <div th:text="${event.category}"></div>
-    <br>
-
-    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nulla malesuada quam sed tincidunt consequat. Mauris aliquet vel tortor et blandit.
-        Aenean a turpis dignissim, tincidunt ante ut, sagittis risus.
-        Nunc pellentesque elementum arcu ut pharetra. Morbi sodales ex at leo ultricies viverra.
-        Integer magna mi, tincidunt quis ligula et, pellentesque luctus dolor.
-        Suspendisse posuere odio nec velit imperdiet, a fringilla erat maximus.
-        In ac lectus nulla. Maecenas sagittis interdum est, eget rhoncus lorem bibendum at.
-        Etiam pretium tempor nunc, a pretium urna congue ac. Suspendisse vehicula,
-        nibh vehicula vestibulum sodales, tortor metus eleifend mi, vitae consequat massa
-        ex in enim. Nam sed congue velit. Aenean mattis lacinia augue a dapibus.</a>
     <br>
     <form action="/" method="get">
         <input type="submit" value="Back to events list">

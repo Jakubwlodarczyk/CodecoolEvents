@@ -95,4 +95,10 @@ public class EventDao {
         statement.executeUpdate("INSERT INTO events(name, description, date, category) " +
                 "VALUES('" +name+ "', '" +description+ "', '" +date+ "', '" +category+ "');");
     }
+
+    public static void removeEventFromDatabase(Integer id) throws SQLException {
+        Connection connection = EventDao.connection();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("DELETE FROM events WHERE id ="+id);
+    }
 }
