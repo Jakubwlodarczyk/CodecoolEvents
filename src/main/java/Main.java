@@ -21,5 +21,5 @@ public class Main {
 
         post("/add-event", EventController::addNewEvent, new ThymeleafTemplateEngine() );
     }
-    
+
 }
