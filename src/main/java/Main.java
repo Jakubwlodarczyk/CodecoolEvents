@@ -1,6 +1,5 @@
+import controller.DatabaseController;
 import controller.EventController;
-import spark.Request;
-import spark.Response;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 import  static spark.Spark.*;
 
@@ -8,6 +7,8 @@ import  static spark.Spark.*;
 public class Main {
 
     public static void main(String[] args) {
+
+        DatabaseController.createTable(args);
 
         exception(Exception.class, (e, req, res) -> e.printStackTrace());
         staticFileLocation("/public");
