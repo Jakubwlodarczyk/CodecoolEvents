@@ -1,0 +1,73 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Codecool events</title>
+</head>
+
+<body>
+<h1 align="center">Edit event</h1>
+
+<form action="/edit-event" method="post">
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="event-name" th:value="${event.name}">
+                <input type="hidden" name="event-id" th:value="${event.id}">
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <input type="text" name="event-description" th:value="${event.description}">
+            </td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td>
+                <input type="date" name="event-date">
+            </td>
+        </tr>
+        <tr>
+            <td>Time:</td>
+            <td>
+                <input type="time" name="event-time">
+            </td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <input type="text" name="event-category" th:value="${event.category}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Edit event">
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+</form>
+
+<br>
+
+<form action="/" method="get">
+    <input type="submit" value="Back to events list">
+</form>
+
+</body>
+
+<br>
+
+<div th:replace="footer :: copy"></div>
+</html>

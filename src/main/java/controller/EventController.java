@@ -46,4 +46,28 @@ public class EventController {
     public static void removeEvent(Integer id) throws SQLException {
         EventDao.removeEventFromDatabase(id);
     }
+
+    public static ModelAndView renderEditEvent(Request req, Response res) {
+        Map params = new HashMap<>();
+        String stringId = req.params(":id");
+        Integer integerId = Integer.parseInt(stringId);
+        params.put("event", EventDao.getById(integerId));
+        return new ModelAndView(params,"product/editEvent");
+    }
+
+    public static ModelAndView updateEventInDb(Request req, Response res) throws SQLException {
+        String eventName = req.queryParams("event-name");
+        String eventDescription = req.queryParams("event-description");
+        String eventDate = req.queryParams("event-date");
+        String eventTime = req.queryParams("event-time");
+        String eventCategory = req.queryParams("event-category");
+        String fullDate = eventDate + " " +eventTime;
+        String stringId = req.queryParams("event-id");
+        Integer integerId = Integer.parseInt(stringId);
+        EventDao.updateEventInDatabase(eventName, eventDescription, fullDate, eventCategory, integerId);
+
+        Map params = new HashMap<>();
+        params.put("eventContainer", EventDao.getAll());
+        return new ModelAndView(params, "product/index");
+    }
 }

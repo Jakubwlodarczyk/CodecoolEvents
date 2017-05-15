@@ -29,6 +29,11 @@ public class Main {
             res.redirect("/");
             return null;
         });
+
+        get("/events/:id/edit", EventController::renderEditEvent, new ThymeleafTemplateEngine() );
+
+        post("edit-event", EventController::updateEventInDb, new ThymeleafTemplateEngine() );
+
     }
 
 }

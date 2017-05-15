@@ -101,4 +101,15 @@ public class EventDao {
         Statement statement = connection.createStatement();
         statement.executeUpdate("DELETE FROM events WHERE id ="+id);
     }
+
+    public static void updateEventInDatabase(String name, String description, String date, String category, Integer id) throws SQLException {
+        Connection connection = EventDao.connection();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("UPDATE events SET " +
+                                    "name='" + name + "', " +
+                                    "description='" + description + "', " +
+                                    "date='" + date + "', " +
+                                    "category='" + category + "' " +
+                                    "WHERE id= " + id + " ;");
+    }
 }
