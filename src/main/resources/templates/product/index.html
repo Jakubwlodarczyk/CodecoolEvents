@@ -14,6 +14,15 @@
     <h1 align="center">Codecool Events List:</h1>
 
 <div class="container">
+    <form action="/sorted" method="get">
+        <select name="chosen-category">
+            <option selected="selected" value="ALL">ALL</option>
+            <option th:each="category,iterStat : ${category}" th:value="${category}">
+                <p th:text="${category}"></p>
+            </option>
+        </select>
+        <input type="submit" value="get by category">
+    </form>
     <table class="table">
         <thead>
             <tr>

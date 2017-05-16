@@ -16,6 +16,8 @@ public class Main {
         staticFileLocation("/public");
         port(8888);
 
+        get("/sorted", EventController::getEventByCategory, new ThymeleafTemplateEngine() );
+
         get("/", EventController::renderEvents, new ThymeleafTemplateEngine());
 
         get("/events/:id/info", EventController::renderEventsInfo, new ThymeleafTemplateEngine() );

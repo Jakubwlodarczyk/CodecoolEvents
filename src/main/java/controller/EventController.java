@@ -1,11 +1,14 @@
 package controller;
 
 import dao.EventDao;
+import model.Event;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EventController {
@@ -13,6 +16,7 @@ public class EventController {
     public static ModelAndView renderEvents(Request req, Response res) {
         Map params = new HashMap<>();
         params.put("eventContainer", EventDao.getAll());
+        params.put("category", EventController.getCategories());
         return new ModelAndView(params, "product/index");
     }
 
@@ -68,6 +72,36 @@ public class EventController {
 
         Map params = new HashMap<>();
         params.put("eventContainer", EventDao.getAll());
+        return new ModelAndView(params, "product/index");
+    }
+
+    public static List<String> getCategories(){
+        List<String> categories = new ArrayList<>();
+        for (Event event : EventDao.getAll()) {
+            if (!categories.contains(event.category)){
+                categories.add(event.category);
+            }
+        }
+        return categories;
+    }
+
+    public static List<Event> getEventListByCategory(String category) {
+        List<Event> eventsByCategory = new ArrayList<>();
+        if (category.equals("ALL")){
+            return EventDao.getAll();
+        }
+        for (Event event : EventDao.getAll()){
+            if (event.category.equals(category)){
+                eventsByCategory.add(event);
+            }
+        }
+        return eventsByCategory;
+    }
+
+    public static ModelAndView getEventByCategory(Request req, Response res) {
+        Map params = new HashMap<>();
+        params.put("eventContainer", EventController.getEventListByCategory(req.queryParams("chosen-category")));
+        params.put("category", EventController.getCategories());
         return new ModelAndView(params, "product/index");
     }
 }
